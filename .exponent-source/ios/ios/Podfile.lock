@@ -1,0 +1,499 @@
+PODS:
+  - Amplitude-iOS (3.12.1)
+  - Analytics (3.5.6)
+  - AppAuth (0.7.1)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - CocoaLumberjack (2.4.0):
+    - CocoaLumberjack/Default (= 2.4.0)
+    - CocoaLumberjack/Extensions (= 2.4.0)
+  - CocoaLumberjack/Core (2.4.0)
+  - CocoaLumberjack/Default (2.4.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.4.0):
+    - CocoaLumberjack/Default
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
+  - ExponentCPP (1.0.0)
+  - Fabric (1.6.11)
+  - FBSDKCoreKit (4.18.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.18.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.18.0):
+    - FBSDKCoreKit
+  - FirebaseAnalytics (3.6.0):
+    - FirebaseCore (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.4.6):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.8)
+  - Google/Core (3.0.3):
+    - FirebaseAnalytics (~> 3.2)
+  - Google/SignIn (3.0.3):
+    - Google/Core
+    - GoogleSignIn (~> 4.0)
+  - GoogleAppUtilities (1.1.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleMaps (2.2.0):
+    - GoogleMaps/Maps (= 2.2.0)
+  - GoogleMaps/Base (2.2.0)
+  - GoogleMaps/Maps (2.2.0):
+    - GoogleMaps/Base
+  - GoogleSignIn (4.0.1):
+    - GoogleAppUtilities (~> 1.1)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleToolboxForMac/DebugUtils (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - GoogleToolboxForMac/Defines (2.1.0)
+  - GoogleToolboxForMac/NSData+zlib (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.0):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.0)
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
+  - GTMOAuth2 (1.1.4):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.7):
+    - GTMSessionFetcher/Full (= 1.1.7)
+  - GTMSessionFetcher/Core (1.1.7)
+  - GTMSessionFetcher/Full (1.1.7):
+    - GTMSessionFetcher/Core (= 1.1.7)
+  - lottie-ios (1.0.4)
+  - RCTTest (0.41.2)
+  - React/ART (0.41.2):
+    - React/Core
+  - React/Core (0.41.2):
+    - React/cxxreact
+    - React/yoga
+  - React/cxxreact (0.41.2):
+    - React/jschelpers
+  - React/jschelpers (0.41.2)
+  - React/RCTActionSheet (0.41.2):
+    - React/Core
+  - React/RCTAnimation (0.41.2):
+    - React/Core
+  - React/RCTCameraRoll (0.41.2):
+    - React/Core
+    - React/RCTImage
+  - React/RCTGeolocation (0.41.2):
+    - React/Core
+  - React/RCTImage (0.41.2):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTNetwork (0.41.2):
+    - React/Core
+  - React/RCTText (0.41.2):
+    - React/Core
+  - React/RCTVibration (0.41.2):
+    - React/Core
+  - React/RCTWebSocket (0.41.2):
+    - React/Core
+  - React/yoga (0.41.2)
+  - ReactABI10_0_0/ART (0.33.0):
+    - ReactABI10_0_0/Core
+  - ReactABI10_0_0/Core (0.33.0):
+    - ReactABI10_0_0/CSSLayout
+  - ReactABI10_0_0/CSSLayout (0.33.0)
+  - ReactABI10_0_0/Exponent (0.33.0):
+    - ReactABI10_0_0/Core
+  - ReactABI10_0_0/RCTActionSheet (0.33.0):
+    - ReactABI10_0_0/Core
+  - ReactABI10_0_0/RCTAnimation (0.33.0):
+    - ReactABI10_0_0/Core
+  - ReactABI10_0_0/RCTCameraRoll (0.33.0):
+    - ReactABI10_0_0/Core
+    - ReactABI10_0_0/RCTImage
+  - ReactABI10_0_0/RCTGeolocation (0.33.0):
+    - ReactABI10_0_0/Core
+  - ReactABI10_0_0/RCTImage (0.33.0):
+    - ReactABI10_0_0/Core
+    - ReactABI10_0_0/RCTNetwork
+  - ReactABI10_0_0/RCTNetwork (0.33.0):
+    - ReactABI10_0_0/Core
+  - ReactABI10_0_0/RCTText (0.33.0):
+    - ReactABI10_0_0/Core
+  - ReactABI10_0_0/RCTVibration (0.33.0):
+    - ReactABI10_0_0/Core
+  - ReactABI10_0_0/RCTWebSocket (0.33.0):
+    - ReactABI10_0_0/Core
+  - ReactABI11_0_0/ART (0.36.0):
+    - ReactABI11_0_0/Core
+  - ReactABI11_0_0/Core (0.36.0)
+  - ReactABI11_0_0/Exponent (0.36.0):
+    - ReactABI11_0_0/Core
+  - ReactABI11_0_0/RCTActionSheet (0.36.0):
+    - ReactABI11_0_0/Core
+  - ReactABI11_0_0/RCTAnimation (0.36.0):
+    - ReactABI11_0_0/Core
+  - ReactABI11_0_0/RCTCameraRoll (0.36.0):
+    - ReactABI11_0_0/Core
+    - ReactABI11_0_0/RCTImage
+  - ReactABI11_0_0/RCTGeolocation (0.36.0):
+    - ReactABI11_0_0/Core
+  - ReactABI11_0_0/RCTImage (0.36.0):
+    - ReactABI11_0_0/Core
+    - ReactABI11_0_0/RCTNetwork
+  - ReactABI11_0_0/RCTNetwork (0.36.0):
+    - ReactABI11_0_0/Core
+  - ReactABI11_0_0/RCTText (0.36.0):
+    - ReactABI11_0_0/Core
+  - ReactABI11_0_0/RCTVibration (0.36.0):
+    - ReactABI11_0_0/Core
+  - ReactABI11_0_0/RCTWebSocket (0.36.0):
+    - ReactABI11_0_0/Core
+  - ReactABI12_0_0/ART (0.37.0):
+    - ReactABI12_0_0/Core
+  - ReactABI12_0_0/Core (0.37.0)
+  - ReactABI12_0_0/Exponent (0.37.0):
+    - ReactABI12_0_0/Core
+  - ReactABI12_0_0/RCTActionSheet (0.37.0):
+    - ReactABI12_0_0/Core
+  - ReactABI12_0_0/RCTAnimation (0.37.0):
+    - ReactABI12_0_0/Core
+  - ReactABI12_0_0/RCTCameraRoll (0.37.0):
+    - ReactABI12_0_0/Core
+    - ReactABI12_0_0/RCTImage
+  - ReactABI12_0_0/RCTGeolocation (0.37.0):
+    - ReactABI12_0_0/Core
+  - ReactABI12_0_0/RCTImage (0.37.0):
+    - ReactABI12_0_0/Core
+    - ReactABI12_0_0/RCTNetwork
+  - ReactABI12_0_0/RCTNetwork (0.37.0):
+    - ReactABI12_0_0/Core
+  - ReactABI12_0_0/RCTText (0.37.0):
+    - ReactABI12_0_0/Core
+  - ReactABI12_0_0/RCTVibration (0.37.0):
+    - ReactABI12_0_0/Core
+  - ReactABI12_0_0/RCTWebSocket (0.37.0):
+    - ReactABI12_0_0/Core
+  - ReactABI13_0_0/ABI13_0_0jschelpers (0.40.0)
+  - ReactABI13_0_0/ABI13_0_0yoga (0.40.0)
+  - ReactABI13_0_0/ART (0.40.0):
+    - ReactABI13_0_0/Core
+  - ReactABI13_0_0/Core (0.40.0):
+    - ReactABI13_0_0/ABI13_0_0yoga
+    - ReactABI13_0_0/cxxReactABI13_0_0
+  - ReactABI13_0_0/cxxReactABI13_0_0 (0.40.0):
+    - ReactABI13_0_0/ABI13_0_0jschelpers
+  - ReactABI13_0_0/Exponent (0.40.0):
+    - ReactABI13_0_0/Core
+  - ReactABI13_0_0/RCTActionSheet (0.40.0):
+    - ReactABI13_0_0/Core
+  - ReactABI13_0_0/RCTAnimation (0.40.0):
+    - ReactABI13_0_0/Core
+  - ReactABI13_0_0/RCTCameraRoll (0.40.0):
+    - ReactABI13_0_0/Core
+    - ReactABI13_0_0/RCTImage
+  - ReactABI13_0_0/RCTGeolocation (0.40.0):
+    - ReactABI13_0_0/Core
+  - ReactABI13_0_0/RCTImage (0.40.0):
+    - ReactABI13_0_0/Core
+    - ReactABI13_0_0/RCTNetwork
+  - ReactABI13_0_0/RCTNetwork (0.40.0):
+    - ReactABI13_0_0/Core
+  - ReactABI13_0_0/RCTText (0.40.0):
+    - ReactABI13_0_0/Core
+  - ReactABI13_0_0/RCTVibration (0.40.0):
+    - ReactABI13_0_0/Core
+  - ReactABI13_0_0/RCTWebSocket (0.40.0):
+    - ReactABI13_0_0/Core
+  - ReactABI14_0_0/ABI14_0_0jschelpers (0.41.2)
+  - ReactABI14_0_0/ABI14_0_0yoga (0.41.2)
+  - ReactABI14_0_0/ART (0.41.2):
+    - ReactABI14_0_0/Core
+  - ReactABI14_0_0/Core (0.41.2):
+    - ReactABI14_0_0/ABI14_0_0yoga
+    - ReactABI14_0_0/cxxReactABI14_0_0
+  - ReactABI14_0_0/cxxReactABI14_0_0 (0.41.2):
+    - ReactABI14_0_0/ABI14_0_0jschelpers
+  - ReactABI14_0_0/Exponent (0.41.2):
+    - ReactABI14_0_0/Core
+  - ReactABI14_0_0/RCTActionSheet (0.41.2):
+    - ReactABI14_0_0/Core
+  - ReactABI14_0_0/RCTAnimation (0.41.2):
+    - ReactABI14_0_0/Core
+  - ReactABI14_0_0/RCTCameraRoll (0.41.2):
+    - ReactABI14_0_0/Core
+    - ReactABI14_0_0/RCTImage
+  - ReactABI14_0_0/RCTGeolocation (0.41.2):
+    - ReactABI14_0_0/Core
+  - ReactABI14_0_0/RCTImage (0.41.2):
+    - ReactABI14_0_0/Core
+    - ReactABI14_0_0/RCTNetwork
+  - ReactABI14_0_0/RCTNetwork (0.41.2):
+    - ReactABI14_0_0/Core
+  - ReactABI14_0_0/RCTText (0.41.2):
+    - ReactABI14_0_0/Core
+  - ReactABI14_0_0/RCTVibration (0.41.2):
+    - ReactABI14_0_0/Core
+  - ReactABI14_0_0/RCTWebSocket (0.41.2):
+    - ReactABI14_0_0/Core
+  - ReactABI7_0_0/ART (0.27.2):
+    - ReactABI7_0_0/Core
+  - ReactABI7_0_0/Core (0.27.2)
+  - ReactABI7_0_0/Exponent (0.27.2):
+    - ReactABI7_0_0/Core
+  - ReactABI7_0_0/RCTActionSheet (0.27.2):
+    - ReactABI7_0_0/Core
+  - ReactABI7_0_0/RCTGeolocation (0.27.2):
+    - ReactABI7_0_0/Core
+  - ReactABI7_0_0/RCTImage (0.27.2):
+    - ReactABI7_0_0/Core
+    - ReactABI7_0_0/RCTNetwork
+  - ReactABI7_0_0/RCTNetwork (0.27.2):
+    - ReactABI7_0_0/Core
+  - ReactABI7_0_0/RCTText (0.27.2):
+    - ReactABI7_0_0/Core
+  - ReactABI7_0_0/RCTVibration (0.27.2):
+    - ReactABI7_0_0/Core
+  - ReactABI7_0_0/RCTWebSocket (0.27.2):
+    - ReactABI7_0_0/Core
+  - ReactABI8_0_0/ART (0.31.0):
+    - ReactABI8_0_0/Core
+  - ReactABI8_0_0/Core (0.31.0):
+    - ReactABI8_0_0/CSSLayout
+  - ReactABI8_0_0/CSSLayout (0.31.0)
+  - ReactABI8_0_0/Exponent (0.31.0):
+    - ReactABI8_0_0/Core
+  - ReactABI8_0_0/RCTActionSheet (0.31.0):
+    - ReactABI8_0_0/Core
+  - ReactABI8_0_0/RCTGeolocation (0.31.0):
+    - ReactABI8_0_0/Core
+  - ReactABI8_0_0/RCTImage (0.31.0):
+    - ReactABI8_0_0/Core
+    - ReactABI8_0_0/RCTNetwork
+  - ReactABI8_0_0/RCTNetwork (0.31.0):
+    - ReactABI8_0_0/Core
+  - ReactABI8_0_0/RCTText (0.31.0):
+    - ReactABI8_0_0/Core
+  - ReactABI8_0_0/RCTVibration (0.31.0):
+    - ReactABI8_0_0/Core
+  - ReactABI8_0_0/RCTWebSocket (0.31.0):
+    - ReactABI8_0_0/Core
+  - ReactABI9_0_0/ART (0.31.0):
+    - ReactABI9_0_0/Core
+  - ReactABI9_0_0/Core (0.31.0):
+    - ReactABI9_0_0/CSSLayout
+  - ReactABI9_0_0/CSSLayout (0.31.0)
+  - ReactABI9_0_0/Exponent (0.31.0):
+    - ReactABI9_0_0/Core
+  - ReactABI9_0_0/RCTActionSheet (0.31.0):
+    - ReactABI9_0_0/Core
+  - ReactABI9_0_0/RCTGeolocation (0.31.0):
+    - ReactABI9_0_0/Core
+  - ReactABI9_0_0/RCTImage (0.31.0):
+    - ReactABI9_0_0/Core
+    - ReactABI9_0_0/RCTNetwork
+  - ReactABI9_0_0/RCTNetwork (0.31.0):
+    - ReactABI9_0_0/Core
+  - ReactABI9_0_0/RCTText (0.31.0):
+    - ReactABI9_0_0/Core
+  - ReactABI9_0_0/RCTVibration (0.31.0):
+    - ReactABI9_0_0/Core
+  - ReactABI9_0_0/RCTWebSocket (0.31.0):
+    - ReactABI9_0_0/Core
+
+DEPENDENCIES:
+  - Amplitude-iOS (~> 3.8)
+  - Analytics (~> 3.5)
+  - AppAuth (~> 0.4)
+  - CocoaLumberjack (~> 2.3)
+  - Crashlytics (~> 3.8)
+  - ExponentCPP (from `../cpp`)
+  - Fabric (~> 1.6)
+  - FBSDKCoreKit (~> 4.15)
+  - FBSDKLoginKit (~> 4.15)
+  - FBSDKShareKit (~> 4.15)
+  - Google/SignIn (~> 3.0)
+  - GoogleMaps (~> 2.2.0)
+  - lottie-ios (~> 1.0)
+  - RCTTest (from `./RCTTest.podspec`)
+  - React/ART (from `../../react-native-lab/react-native`)
+  - React/Core (from `../../react-native-lab/react-native`)
+  - React/RCTActionSheet (from `../../react-native-lab/react-native`)
+  - React/RCTAnimation (from `../../react-native-lab/react-native`)
+  - React/RCTCameraRoll (from `../../react-native-lab/react-native`)
+  - React/RCTGeolocation (from `../../react-native-lab/react-native`)
+  - React/RCTImage (from `../../react-native-lab/react-native`)
+  - React/RCTNetwork (from `../../react-native-lab/react-native`)
+  - React/RCTText (from `../../react-native-lab/react-native`)
+  - React/RCTVibration (from `../../react-native-lab/react-native`)
+  - React/RCTWebSocket (from `../../react-native-lab/react-native`)
+  - ReactABI10_0_0/ART (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/Core (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/CSSLayout (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/Exponent (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/RCTActionSheet (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/RCTAnimation (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/RCTCameraRoll (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/RCTGeolocation (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/RCTImage (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/RCTNetwork (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/RCTText (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/RCTVibration (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI10_0_0/RCTWebSocket (from `versioned-react-native/ABI10_0_0`)
+  - ReactABI11_0_0/ART (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/Core (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/Exponent (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/RCTActionSheet (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/RCTAnimation (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/RCTCameraRoll (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/RCTGeolocation (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/RCTImage (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/RCTNetwork (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/RCTText (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/RCTVibration (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI11_0_0/RCTWebSocket (from `versioned-react-native/ABI11_0_0`)
+  - ReactABI12_0_0/ART (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/Core (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/Exponent (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/RCTActionSheet (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/RCTAnimation (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/RCTCameraRoll (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/RCTGeolocation (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/RCTImage (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/RCTNetwork (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/RCTText (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/RCTVibration (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI12_0_0/RCTWebSocket (from `versioned-react-native/ABI12_0_0`)
+  - ReactABI13_0_0/ART (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/Core (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/Exponent (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/RCTActionSheet (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/RCTAnimation (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/RCTCameraRoll (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/RCTGeolocation (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/RCTImage (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/RCTNetwork (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/RCTText (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/RCTVibration (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI13_0_0/RCTWebSocket (from `versioned-react-native/ABI13_0_0`)
+  - ReactABI14_0_0/ART (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/Core (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/Exponent (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/RCTActionSheet (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/RCTAnimation (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/RCTCameraRoll (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/RCTGeolocation (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/RCTImage (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/RCTNetwork (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/RCTText (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/RCTVibration (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI14_0_0/RCTWebSocket (from `versioned-react-native/ABI14_0_0`)
+  - ReactABI7_0_0/ART (from `versioned-react-native/ABI7_0_0`)
+  - ReactABI7_0_0/Core (from `versioned-react-native/ABI7_0_0`)
+  - ReactABI7_0_0/Exponent (from `versioned-react-native/ABI7_0_0`)
+  - ReactABI7_0_0/RCTActionSheet (from `versioned-react-native/ABI7_0_0`)
+  - ReactABI7_0_0/RCTGeolocation (from `versioned-react-native/ABI7_0_0`)
+  - ReactABI7_0_0/RCTImage (from `versioned-react-native/ABI7_0_0`)
+  - ReactABI7_0_0/RCTNetwork (from `versioned-react-native/ABI7_0_0`)
+  - ReactABI7_0_0/RCTText (from `versioned-react-native/ABI7_0_0`)
+  - ReactABI7_0_0/RCTVibration (from `versioned-react-native/ABI7_0_0`)
+  - ReactABI7_0_0/RCTWebSocket (from `versioned-react-native/ABI7_0_0`)
+  - ReactABI8_0_0/ART (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI8_0_0/Core (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI8_0_0/CSSLayout (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI8_0_0/Exponent (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI8_0_0/RCTActionSheet (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI8_0_0/RCTGeolocation (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI8_0_0/RCTImage (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI8_0_0/RCTNetwork (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI8_0_0/RCTText (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI8_0_0/RCTVibration (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI8_0_0/RCTWebSocket (from `versioned-react-native/ABI8_0_0`)
+  - ReactABI9_0_0/ART (from `versioned-react-native/ABI9_0_0`)
+  - ReactABI9_0_0/Core (from `versioned-react-native/ABI9_0_0`)
+  - ReactABI9_0_0/CSSLayout (from `versioned-react-native/ABI9_0_0`)
+  - ReactABI9_0_0/Exponent (from `versioned-react-native/ABI9_0_0`)
+  - ReactABI9_0_0/RCTActionSheet (from `versioned-react-native/ABI9_0_0`)
+  - ReactABI9_0_0/RCTGeolocation (from `versioned-react-native/ABI9_0_0`)
+  - ReactABI9_0_0/RCTImage (from `versioned-react-native/ABI9_0_0`)
+  - ReactABI9_0_0/RCTNetwork (from `versioned-react-native/ABI9_0_0`)
+  - ReactABI9_0_0/RCTText (from `versioned-react-native/ABI9_0_0`)
+  - ReactABI9_0_0/RCTVibration (from `versioned-react-native/ABI9_0_0`)
+  - ReactABI9_0_0/RCTWebSocket (from `versioned-react-native/ABI9_0_0`)
+
+EXTERNAL SOURCES:
+  ExponentCPP:
+    :path: "../cpp"
+  RCTTest:
+    :path: "../../react-native-lab/react-native"
+    :podspec: "./RCTTest.podspec"
+  React:
+    :path: "../../react-native-lab/react-native"
+  ReactABI10_0_0:
+    :path: versioned-react-native/ABI10_0_0
+  ReactABI11_0_0:
+    :path: versioned-react-native/ABI11_0_0
+  ReactABI12_0_0:
+    :path: versioned-react-native/ABI12_0_0
+  ReactABI13_0_0:
+    :path: versioned-react-native/ABI13_0_0
+  ReactABI14_0_0:
+    :path: versioned-react-native/ABI14_0_0
+  ReactABI7_0_0:
+    :path: versioned-react-native/ABI7_0_0
+  ReactABI8_0_0:
+    :path: versioned-react-native/ABI8_0_0
+  ReactABI9_0_0:
+    :path: versioned-react-native/ABI9_0_0
+
+CHECKOUT OPTIONS:
+  RCTTest:
+    :commit: 908efa35d6b0849bb5a22ed04a75c0d5c5bcf421
+    :git: https://github.com/exponent/react-native.git
+
+SPEC CHECKSUMS:
+  Amplitude-iOS: dfbca86bdecc6b36e0a33e1a7d27ad7f240da4df
+  Analytics: 3f083546175de3e62185a72c14670aa00ca6a201
+  AppAuth: c56d352b0d50bb34dbb302d7ba50b20aa6b6ae89
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  ExponentCPP: f517ab723383712554fd8ccc6f37d149ef658e61
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
+  FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
+  FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
+  FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
+  FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
+  GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  GoogleSignIn: a8694c0a8e6d1b0ec77c58014de5bfd4ba2fa766
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
+  GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  lottie-ios: 8b2c5ba38105430a72f03ce54be90d8dac950161
+  RCTTest: 8a2c98dc5d22928bb4bbebcf63243b36f60397b2
+  React: 2b10c07d947dea71c144a33764e9162ed81e3825
+  ReactABI10_0_0: 22a269be20dccbcf1d5fe64353dd357116cfa7f1
+  ReactABI11_0_0: b540db688402eef73249eecc912cac35852d35c1
+  ReactABI12_0_0: 17e8bb64421a524d262329e2eb85cada7d52c4a4
+  ReactABI13_0_0: d4ccc9717f90b7d608a1acd5719c81302e1ec8a4
+  ReactABI14_0_0: 16ed5065673e25986cb7f7ce7cd17984621455b1
+  ReactABI7_0_0: dc70bd0fbd3bc97e6bf12903720b43c4a7a4bce6
+  ReactABI8_0_0: 829dda19b75d2237122ac8e37ae1e4227ac8ed2e
+  ReactABI9_0_0: 050954eeba2af38f3845b5ccb1d677936c16783f
+
+PODFILE CHECKSUM: b53cd40c704afbd6ef7b7af7daedb9f1c476c50d
+
+COCOAPODS: 1.2.0.beta.1

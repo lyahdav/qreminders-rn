@@ -1,0 +1,34 @@
+{
+  "name": "qreminders-rn",
+  "description": "An empty new project",
+  "slug": "qreminders-rn",
+  "privacy": "public",
+  "sdkVersion": "14.0.0",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "primaryColor": "#cccccc",
+  "icon": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png",
+  "loading": {
+    "icon": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png",
+    "hideExponentText": false
+  },
+  "packagerOpts": {
+    "assetExts": [
+      "ttf",
+      "mp4"
+    ]
+  },
+  "ios": {
+    "bundleIdentifier": "com.yahdav.qreminders",
+    "supportsTablet": true
+  },
+  "android": {
+    "package": "com.yahdav.qreminders"
+  },
+  "isDetached": true,
+  "detach": {
+    "scheme": "exp776e0d78fbbe4757acfbff7522539b88",
+    "iosExponentViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/ios-v1.13.1-sdk14.0.0-06dab271-a23b-436f-a19e-1c86c16067b9.tar.gz",
+    "androidExponentViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v1.13.2-sdk14.0.0-5d431a7c-7837-4793-96f3-a1a131b6eadf.tar.gz"
+  }
+}

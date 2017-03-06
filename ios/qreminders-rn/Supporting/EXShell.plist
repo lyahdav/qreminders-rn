@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>developmentUrl</key>
+	<string>exp776e0d78fbbe4757acfbff7522539b88://zd-xgk.lyahdav.qreminders-rn.exp.direct:80</string>
+	<key>isManifestVerificationBypassed</key>
+	<true/>
+	<key>isShell</key>
+	<true/>
+	<key>manifestUrl</key>
+	<string>exp://exp.host/@lyahdav/qreminders-rn</string>
+</dict>
+</plist>
