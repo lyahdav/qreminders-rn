@@ -2,7 +2,7 @@
   "name": "qreminders-rn",
   "version": "0.0.0",
   "description": "Hello Exponent!",
-  "author": null,
+  "author": "Liron Yahdav",
   "private": true,
   "main": "main.js",
   "dependencies": {
@@ -10,6 +10,7 @@
     "exponent": "^14.0.0",
     "react": "~15.4.0",
     "react-native": "https://github.com/exponent/react-native/archive/sdk-14.0.0.tar.gz",
-    "react-native-calendar-reminders": "1.0.0"
+    "react-native-calendar-reminders": "1.0.0",
+    "react-navigation": "1.0.0-beta.7"
   }
 }
