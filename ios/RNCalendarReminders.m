@@ -95,7 +95,6 @@ RCT_EXPORT_MODULE()
 
 - (NSDictionary *)buildAndSaveReminder:(EKReminder *)reminder details:(NSDictionary *)details
 {
-    NSString *eventId = [RCTConvert NSString:details[_id]];
     NSString *title = [RCTConvert NSString:details[_title]];
     NSString *location = [RCTConvert NSString:details[_location]];
     NSDate *startDate = [RCTConvert NSDate:details[_startDate]];
@@ -103,10 +102,10 @@ RCT_EXPORT_MODULE()
     NSString *notes = [RCTConvert NSString:details[_notes]];
     NSArray *alarms = [RCTConvert NSArray:details[_alarms]];
     NSString *recurrence = [RCTConvert NSString:details[_recurrence]];
-    NSInteger *recurrenceInterval = [RCTConvert NSInteger:details[_recurrenceInterval]];
-    BOOL *isCompleted = [RCTConvert BOOL:details[_isCompleted]];
+    NSInteger recurrenceInterval = [RCTConvert NSInteger:details[_recurrenceInterval]];
+    BOOL isCompleted = [RCTConvert BOOL:details[_isCompleted]];
 
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 
     if (title) {
         reminder.title = title;
@@ -115,12 +114,12 @@ RCT_EXPORT_MODULE()
         reminder.location = location;
     }
     if (startDate) {
-        NSDateComponents *startDateComponents = [gregorianCalendar components:(NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSCalendarUnitTimeZone)
+        NSDateComponents *startDateComponents = [gregorianCalendar components:(NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitTimeZone)
                                                                      fromDate:startDate];
         reminder.startDateComponents = startDateComponents;
     }
     if (dueDate) {
-        NSDateComponents *dueDateComponents = [gregorianCalendar components:(NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSCalendarUnitTimeZone)
+        NSDateComponents *dueDateComponents = [gregorianCalendar components:(NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitTimeZone)
                                                                    fromDate:dueDate];
         reminder.dueDateComponents = dueDateComponents;
     }
@@ -131,7 +130,7 @@ RCT_EXPORT_MODULE()
         reminder.alarms = [self createReminderAlarms:alarms];
     }
     if (recurrence) {
-        NSInteger *interval = recurrenceInterval > 0 ? recurrenceInterval : 1;
+        NSInteger interval = recurrenceInterval > 0 ? recurrenceInterval : 1;
         EKRecurrenceRule *rule = [self createRecurrenceRule:recurrence :interval];
         if (rule) {
             reminder.recurrenceRules = [NSArray arrayWithObject:rule];
@@ -273,7 +272,7 @@ RCT_EXPORT_MODULE()
     return recurrence;
 }
 
--(EKRecurrenceRule *)createRecurrenceRule:(NSString *)frequency :(int)recurrenceInterval
+-(EKRecurrenceRule *)createRecurrenceRule:(NSString *)frequency :(NSInteger)recurrenceInterval
 {
     EKRecurrenceRule *rule = nil;
     NSArray *validFrequencyTypes = @[@"daily", @"weekly", @"monthly", @"yearly"];
@@ -317,7 +316,7 @@ RCT_EXPORT_MODULE()
                                     _recurrence: @""
                                     };
 
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     [dateFormatter setTimeZone:timeZone];
@@ -413,7 +412,7 @@ RCT_EXPORT_MODULE()
 
         if (reminder.hasRecurrenceRules) {
             NSString *frequencyType = [self nameMatchingFrequency:[[reminder.recurrenceRules objectAtIndex:0] frequency]];
-            int interval = [[reminder.recurrenceRules objectAtIndex:0] interval];
+            NSInteger interval = [[reminder.recurrenceRules objectAtIndex:0] interval];
             [formedReminder setValue:frequencyType forKey:_recurrence];
             [formedReminder setValue:@(interval) forKey:_recurrenceInterval];
         }
