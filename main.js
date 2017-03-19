@@ -101,7 +101,6 @@ class RemindersList extends React.Component {
   }
 
   componentWillMount() {
-    console.log('componentWillMount');
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.setState({
       dataSource: ds.cloneWithRows(this.props.reminders),
@@ -114,12 +113,16 @@ class RemindersList extends React.Component {
         dataSource={this.state.dataSource}
         renderRow={(rowData) => <ReminderRow reminder={rowData}/>}
         style={styles.remindersList}
-        renderSeparator={this._renderSeparator}
+        renderSeparator={this._renderSeparator.bind(this)}
       />
     );
   }
 
   _renderSeparator(sectionID, rowID) {
+    let isLastRow = rowID == this.props.reminders.length - 1;
+    if (isLastRow) {
+      return null;
+    }
     return (
       <View
         key={`${sectionID}-${rowID}`}
@@ -132,7 +135,9 @@ class RemindersList extends React.Component {
 class ReminderRow extends React.Component {
   render() {
     return (
-      <Text>{this.props.reminder.title}</Text>
+      <View style={styles.row}>
+        <Text>{this.props.reminder.title}</Text>
+      </View>
     );
   }
 }
@@ -153,10 +158,14 @@ const styles = StyleSheet.create({
   remindersList: {
     marginTop: 10,
   },
-    separator: {
-        height: 1,
-        backgroundColor: '#CCCCCC',
-    }
+  separator: {
+    height: 1,
+    backgroundColor: '#CCCCCC'
+  },
+  row: {
+    height: 40,
+    justifyContent: 'center'
+  }
 });
 
 const App = StackNavigator({
