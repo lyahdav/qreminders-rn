@@ -1,9 +1,11 @@
 node_modules/**/*
-.exponent/*
-.expo/*
 npm-debug.*
 Pods
 
 # Xcode
 xcuserdata/
 
+# Exponent
+*.bak
+.exponent/*
+.expo/*
