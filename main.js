@@ -5,13 +5,80 @@ import {
   Text,
   View,
   ListView,
-  SegmentedControlIOS
+  SegmentedControlIOS,
+  TouchableHighlight
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
 
 import RNCalendarReminders from 'react-native-calendar-reminders';
 
+class ReminderCalendarList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      calendars: []
+    };
+  }
+
+  componentDidMount() {
+    RNCalendarReminders.authorizeEventStore()
+      .then(() => {
+        return RNCalendarReminders.fetchReminderCalendars();
+      })
+      .then((calendars) => {
+        this.setState({
+          calendars: calendars
+        })
+      });
+  }
+
+  render() {
+    let dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    dataSource = dataSource.cloneWithRows(this.state.calendars);
+
+    return (
+      <ListView
+        dataSource={dataSource}
+        renderRow={(calendar) => <CalendarRow calendar={calendar}/>}
+        renderSeparator={(sectionID, rowID) => {
+          return renderSeparator(sectionID, rowID, this.state.calendars.length);
+        }}
+        enableEmptySections={true}
+      />
+    );
+  }
+}
+
+class CalendarRow extends React.Component {
+  onPressRow() {
+    console.log(1); // TODO
+  }
+
+  render() {
+    return (
+      <TouchableHighlight style={styles.row} onPress={this.onPressRow}>
+        <Text style={styles.calendarRowTitle}>{this.props.calendar.title}</Text>
+      </TouchableHighlight>
+    );
+  }
+}
+
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Lists',
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <ReminderCalendarList/>
+      </View>
+    );
+  }
+}
+
+// TODO fixme
+class HomeScreenOld extends React.Component {
   static navigationOptions = {
     title: 'Reminders',
   };
@@ -26,7 +93,7 @@ class HomeScreen extends React.Component {
   componentDidMount() {
     RNCalendarReminders.authorizeEventStore()
       .then(() => {
-        return RNCalendarReminders.fetchIncompleteReminders(null, null);
+        return RNCalendarReminders.fetchIncompleteReminders(null, null, null);
       })
       .then(reminders => {
         this.setState({
@@ -113,6 +180,19 @@ class SortSegmentedControl extends React.Component {
   }
 }
 
+function renderSeparator(sectionID, rowID, listLength) {
+  let isLastRow = rowID == listLength - 1;
+  if (isLastRow) {
+    return null;
+  }
+  return (
+    <View
+      key={`${sectionID}-${rowID}`}
+      style={styles.separator}
+    />
+  );
+}
+
 class RemindersList extends React.Component {
   render() {
     let dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -123,21 +203,10 @@ class RemindersList extends React.Component {
         dataSource={dataSource}
         renderRow={(rowData) => <ReminderRow reminder={rowData}/>}
         style={styles.remindersList}
-        renderSeparator={this._renderSeparator.bind(this)}
+        renderSeparator={(sectionID, rowID) => {
+          return renderSeparator(sectionID, rowID, this.props.reminders.length);
+        }}
         enableEmptySections={true}
-      />
-    );
-  }
-
-  _renderSeparator(sectionID, rowID) {
-    let isLastRow = rowID == this.props.reminders.length - 1;
-    if (isLastRow) {
-      return null;
-    }
-    return (
-      <View
-        key={`${sectionID}-${rowID}`}
-        style={styles.separator}
       />
     );
   }
@@ -177,7 +246,10 @@ const styles = StyleSheet.create({
   },
   row: {
     height: 40,
-    justifyContent: 'center'
+    justifyContent: 'center',
+  },
+  calendarRowTitle: {
+    backgroundColor: '#fff'
   }
 });
 
