@@ -120,15 +120,10 @@ class RemindersList extends React.Component {
   }
 
   _renderSeparator(sectionID, rowID) {
-    // {/*TODO extract style*/}
-    console.log(`${sectionID}-${rowID}`);
     return (
       <View
         key={`${sectionID}-${rowID}`}
-        style={{
-          height: 1,
-          backgroundColor: '#CCCCCC',
-        }}
+        style={styles.separator}
       />
     );
   }
@@ -158,6 +153,10 @@ const styles = StyleSheet.create({
   remindersList: {
     marginTop: 10,
   },
+    separator: {
+        height: 1,
+        backgroundColor: '#CCCCCC',
+    }
 });
 
 const App = StackNavigator({
