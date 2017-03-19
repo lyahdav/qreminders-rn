@@ -26,7 +26,7 @@ class HomeScreen extends React.Component {
   componentDidMount() {
     RNCalendarReminders.authorizeEventStore()
       .then(() => {
-        return RNCalendarReminders.fetchAllReminders();
+        return RNCalendarReminders.fetchIncompleteReminders(null, null);
       })
       .then(reminders => {
         this.setState({

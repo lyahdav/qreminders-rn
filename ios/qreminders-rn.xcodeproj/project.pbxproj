@@ -156,7 +156,7 @@
 				TargetAttributes = {
 					B56386401DB9693800A0598C = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = C8D8QTF339;
+						DevelopmentTeam = 75XGMG482Z;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -262,8 +262,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B56386611DB96A5E00A0598C /* main.m in Sources */,
-				FEF11D9E1E6D45970020B301 /* RNCalendarReminders.m in Sources */,
 				B56386491DB9693800A0598C /* AppDelegate.m in Sources */,
+				FEF11D9E1E6D45970020B301 /* RNCalendarReminders.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +365,7 @@
 			baseConfigurationReference = 2C1548D9E4CB1AEFA5CCAE6D /* Pods-qreminders-rn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C8D8QTF339;
+				DEVELOPMENT_TEAM = 75XGMG482Z;
 				INFOPLIST_FILE = "$(SRCROOT)/qreminders-rn/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -382,7 +382,7 @@
 			baseConfigurationReference = A47FE4D7F70906B7DC8CE39B /* Pods-qreminders-rn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C8D8QTF339;
+				DEVELOPMENT_TEAM = 75XGMG482Z;
 				INFOPLIST_FILE = "$(SRCROOT)/qreminders-rn/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
