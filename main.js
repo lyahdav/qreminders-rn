@@ -56,9 +56,11 @@ class CalendarRow extends React.Component {
 
   render() {
     return (
-      <TouchableHighlight style={styles.row} onPress={this.onPressRow}>
-        <Text style={styles.calendarRowTitle}>{this.props.calendar.title}</Text>
-      </TouchableHighlight>
+        <TouchableHighlight style={styles.row} onPress={this.onPressRow}>
+          <View style={styles.rowContainer}>
+            <Text style={styles.calendarRowTitle}>{this.props.calendar.title}</Text>
+          </View>
+        </TouchableHighlight>
     );
   }
 }
@@ -141,20 +143,20 @@ class SortableRemindersList extends React.Component {
 
   getReminders() {
     const reminders = this.props.reminders;
-    if (this.state.sortTypeIndex == SORT_TYPE_PRIORITY) {
+    if (this.state.sortTypeIndex === SORT_TYPE_PRIORITY) {
       return reminders.concat().sort(this._sortPriority);
     } else {
       return reminders;
     }
   }
 
-  _getPriorityForSort(reminder) {
+  static _getPriorityForSort(reminder) {
     // 0 priority means none. 1 = highest, 9 = lowest
     return reminder.priority === 0 ? 100 : reminder.priority;
   }
 
   _sortPriority = (reminder1, reminder2) => {
-    return this._getPriorityForSort(reminder1) - this._getPriorityForSort(reminder2);
+    return SortableRemindersList._getPriorityForSort(reminder1) - SortableRemindersList._getPriorityForSort(reminder2);
   };
 }
 
@@ -181,7 +183,7 @@ class SortSegmentedControl extends React.Component {
 }
 
 function renderSeparator(sectionID, rowID, listLength) {
-  let isLastRow = rowID == listLength - 1;
+  let isLastRow = rowID === listLength - 1;
   if (isLastRow) {
     return null;
   }
@@ -228,7 +230,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 10
   },
   sortSegmentControlContainer: {
     alignItems: 'center'
@@ -244,8 +245,11 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: '#CCCCCC'
   },
+  rowContainer: {
+    padding: 10,
+    backgroundColor: '#fff'
+  },
   row: {
-    height: 40,
     justifyContent: 'center',
   },
   calendarRowTitle: {
