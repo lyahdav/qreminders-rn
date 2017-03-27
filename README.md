@@ -1,6 +1,9 @@
 # QReminders
 iOS Reminders app written in React Native
 
+# Links
+- [Pivotal Tracker Project](https://www.pivotaltracker.com/n/projects/1271916)
+
 # Developer setup
 1. Clone repo
 1. `cd qreminders-rn`
