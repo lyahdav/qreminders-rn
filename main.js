@@ -39,7 +39,7 @@ class ReminderCalendarList extends React.Component {
     return (
       <ListView
         dataSource={dataSource}
-        renderRow={(calendar) => <CalendarRow calendar={calendar}/>}
+        renderRow={(calendar) => <CalendarRow calendar={calendar} navigation={this.props.navigation}/>}
         renderSeparator={(sectionID, rowID) => {
           return renderSeparator(sectionID, rowID, this.state.calendars.length);
         }}
@@ -51,16 +51,20 @@ class ReminderCalendarList extends React.Component {
 
 class CalendarRow extends React.Component {
   onPressRow() {
-    console.log(1); // TODO
+    const {navigate} = this.props.navigation;
+    navigate('RemindersList', {
+      calendarIdentifier: this.props.calendar.calendarIdentifier,
+      title: this.props.calendar.title
+    });
   }
 
   render() {
     return (
-        <TouchableHighlight style={styles.row} onPress={this.onPressRow}>
-          <View style={styles.rowContainer}>
-            <Text style={styles.calendarRowTitle}>{this.props.calendar.title}</Text>
-          </View>
-        </TouchableHighlight>
+      <TouchableHighlight style={styles.row} onPress={this.onPressRow.bind(this)}>
+        <View style={styles.rowContainer}>
+          <Text style={styles.calendarRowTitle}>{this.props.calendar.title}</Text>
+        </View>
+      </TouchableHighlight>
     );
   }
 }
@@ -73,40 +77,21 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ReminderCalendarList/>
+        <ReminderCalendarList navigation={this.props.navigation}/>
       </View>
     );
   }
 }
 
-// TODO fixme
-class HomeScreenOld extends React.Component {
+class ReminderListScreen extends React.Component {
   static navigationOptions = {
-    title: 'Reminders',
+    title: ({ state }) => state.title
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      reminders: []
-    };
-  }
-
-  componentDidMount() {
-    RNCalendarReminders.authorizeEventStore()
-      .then(() => {
-        return RNCalendarReminders.fetchIncompleteReminders(null, null, null);
-      })
-      .then(reminders => {
-        this.setState({
-          reminders: reminders
-        });
-      });
-  }
-
   render() {
+    const { params } = this.props.navigation.state;
     return (
-      <SortableRemindersList reminders={this.state.reminders}/>
+      <SortableRemindersList calendarIdentifier={params.calendarIdentifier} />
     );
   }
 }
@@ -119,8 +104,19 @@ class SortableRemindersList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sortTypeIndex: SORT_TYPE_DEFAULT
+      sortTypeIndex: SORT_TYPE_DEFAULT,
+      reminders: []
     };
+  }
+
+  componentDidMount() {
+    const calendarIdentifiers = [this.props.calendarIdentifier];
+    RNCalendarReminders.fetchIncompleteReminders(null, null, calendarIdentifiers)
+      .then((reminders) => {
+        this.setState({
+          reminders: reminders
+        })
+      });
   }
 
   render() {
@@ -142,7 +138,7 @@ class SortableRemindersList extends React.Component {
   }
 
   getReminders() {
-    const reminders = this.props.reminders;
+    const reminders = this.state.reminders;
     if (this.state.sortTypeIndex === SORT_TYPE_PRIORITY) {
       return reminders.concat().sort(this._sortPriority);
     } else {
@@ -259,6 +255,7 @@ const styles = StyleSheet.create({
 
 const App = StackNavigator({
   Home: {screen: HomeScreen},
+  RemindersList: {screen: ReminderListScreen}
 });
 
 Exponent.registerRootComponent(App);
