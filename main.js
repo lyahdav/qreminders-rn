@@ -5,73 +5,15 @@ import {
   Text,
   View,
   ListView,
-  SegmentedControlIOS,
-  TouchableHighlight
+  SegmentedControlIOS
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
-
 import RNCalendarReminders from 'react-native-calendar-reminders';
-
-class ReminderCalendarList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      calendars: []
-    };
-  }
-
-  componentDidMount() {
-    RNCalendarReminders.authorizeEventStore()
-      .then(() => {
-        return RNCalendarReminders.fetchReminderCalendars();
-      })
-      .then((calendars) => {
-        this.setState({
-          calendars: calendars
-        })
-      });
-  }
-
-  render() {
-    let dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    dataSource = dataSource.cloneWithRows(this.state.calendars);
-
-    return (
-      <ListView
-        dataSource={dataSource}
-        renderRow={(calendar) => <CalendarRow calendar={calendar} navigation={this.props.navigation}/>}
-        renderSeparator={(sectionID, rowID) => {
-          return renderSeparator(sectionID, rowID, this.state.calendars.length);
-        }}
-        enableEmptySections={true}
-      />
-    );
-  }
-}
-
-class CalendarRow extends React.Component {
-  onPressRow() {
-    const {navigate} = this.props.navigation;
-    navigate('RemindersList', {
-      calendarIdentifier: this.props.calendar.calendarIdentifier,
-      title: this.props.calendar.title
-    });
-  }
-
-  render() {
-    return (
-      <TouchableHighlight style={styles.row} onPress={this.onPressRow.bind(this)}>
-        <View style={styles.rowContainer}>
-          <Text style={styles.calendarRowTitle}>{this.props.calendar.title}</Text>
-        </View>
-      </TouchableHighlight>
-    );
-  }
-}
+import {ReminderCalendarList} from "./components/reminder-calendar-list";
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Lists',
+    title: 'Lists'
   };
 
   render() {
@@ -85,13 +27,13 @@ class HomeScreen extends React.Component {
 
 class ReminderListScreen extends React.Component {
   static navigationOptions = {
-    title: ({ state }) => state.title
+    title: ({state}) => state.title
   };
 
   render() {
-    const { params } = this.props.navigation.state;
+    const {params} = this.props.navigation.state;
     return (
-      <SortableRemindersList calendarIdentifier={params.calendarIdentifier} />
+      <SortableRemindersList calendarIdentifier={params.calendarIdentifier}/>
     );
   }
 }
@@ -240,16 +182,6 @@ const styles = StyleSheet.create({
   separator: {
     height: 1,
     backgroundColor: '#CCCCCC'
-  },
-  rowContainer: {
-    padding: 10,
-    backgroundColor: '#fff'
-  },
-  row: {
-    justifyContent: 'center',
-  },
-  calendarRowTitle: {
-    backgroundColor: '#fff'
   }
 });
 
