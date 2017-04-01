@@ -73,7 +73,7 @@ export class ScheduledRemindersList extends React.Component {
   }
 
   //noinspection JSUnusedLocalSymbols
-  static renderSectionHeader(sectionData: any, sectionHeaderText: string) {
+  static renderSectionHeader(_: any, sectionHeaderText: string) {
     return (
       <Text style={styles.sectionHeader}>{sectionHeaderText}</Text>
     );
@@ -90,7 +90,6 @@ export class ScheduledRemindersList extends React.Component {
 
   static getReminderDateString(reminder: Reminder) {
     const firstAlarm = ReminderUtils.getFirstAlarm(reminder);
-    //noinspection EqualityComparisonWithCoercionJS
     if (firstAlarm == null) {
       throw 'no alarm on reminder';
     }

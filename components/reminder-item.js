@@ -33,7 +33,6 @@ export class ReminderItem extends React.Component {
 
   static getSubtitle(reminder: Reminder) {
     const firstAlarm = ReminderUtils.getFirstAlarm(reminder);
-    //noinspection EqualityComparisonWithCoercionJS
     return firstAlarm == null ? null : moment(firstAlarm.date).format('LT');
   }
 
@@ -45,7 +44,6 @@ export class ReminderItem extends React.Component {
 
   static isFirstAlarmOverdue(reminder: Reminder) {
     const firstAlarm = ReminderUtils.getFirstAlarm(reminder);
-    //noinspection EqualityComparisonWithCoercionJS
     return firstAlarm != null && ReminderItem.isAlarmOverdue(firstAlarm);
   }
 
