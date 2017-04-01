@@ -33,6 +33,7 @@ export class ReminderCalendarList extends React.Component {
               <ListItem
                 key={index}
                 title={calendar.title}
+                titleStyle={{color: calendar.color}}
                 onPress={() => {
                   this.onPressRow(calendar)
                 }}
