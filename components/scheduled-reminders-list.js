@@ -40,7 +40,10 @@ export class ScheduledRemindersList extends React.Component {
 
   groupRemindersByDate() {
     let remindersGroupedByDate = {};
-    this.state.reminders.forEach((reminder) => {
+    let reminders = [...this.state.reminders];
+    reminders.sort((reminderA, reminderB) => ScheduledRemindersList.reminderDate(reminderA) - ScheduledRemindersList.reminderDate(reminderB));
+
+    reminders.forEach((reminder) => {
       const reminderDateString = ScheduledRemindersList.getReminderDateString(reminder);
       if (!remindersGroupedByDate[reminderDateString]) {
         remindersGroupedByDate[reminderDateString] = [];
@@ -48,6 +51,10 @@ export class ScheduledRemindersList extends React.Component {
       remindersGroupedByDate[reminderDateString].push(reminder);
     });
     return remindersGroupedByDate;
+  }
+
+  static reminderDate(reminder: Reminder) {
+    return ReminderUtils.getFirstAlarmDateBang(reminder).valueOf();
   }
 
   render() {
@@ -89,11 +96,22 @@ export class ScheduledRemindersList extends React.Component {
   }
 
   static getReminderDateString(reminder: Reminder) {
-    const firstAlarm = ReminderUtils.getFirstAlarm(reminder);
-    if (firstAlarm == null) {
-      throw 'no alarm on reminder';
+    const firstAlarmDate = ReminderUtils.getFirstAlarmDateBang(reminder);
+    if (this.isDateToday(firstAlarmDate)) {
+      return firstAlarmDate.format('[Today], ddd l');
+    } else if (this.isDateTomorrow(firstAlarmDate)) {
+      return firstAlarmDate.format('[Tomorrow], ddd l');
     }
-    return moment(firstAlarm.date).format('l');
+    return firstAlarmDate.format('ddd l');
+  }
+
+  static isDateToday(date) {
+    return date.isSame(new Date(), "day");
+  }
+
+  static isDateTomorrow(date) {
+    const tomorrow = moment().add(1, 'days').startOf('day');
+    return date.isSame(tomorrow, 'day');
   }
 }
 
