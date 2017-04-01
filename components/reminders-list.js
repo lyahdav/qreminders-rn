@@ -11,12 +11,11 @@ export class RemindersList extends React.Component {
             <ListItem
               key={index}
               title={`${reminder.priority} ${reminder.title}`}
+              hideChevron={true}
             />
           ))
         }
       </List>
     );
-
   }
 }
-

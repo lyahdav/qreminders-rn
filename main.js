@@ -27,7 +27,7 @@ class HomeScreen extends React.Component {
 
 class ReminderListScreen extends React.Component {
   static navigationOptions = {
-    title: ({state}) => state.title
+    title: ({state}) => state.params.title
   };
 
   render() {
