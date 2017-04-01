@@ -13,6 +13,6 @@
     "react-native-calendar-reminders": "1.0.0",
     "react-native-elements": "0.10.3",
     "react-navigation": "1.0.0-beta.7",
-    "moment": "latest"
+    "moment": "^2.18.1"
   }
 }
