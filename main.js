@@ -4,12 +4,12 @@ import {
   StyleSheet,
   Text,
   View,
-  ListView,
   SegmentedControlIOS
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
 import RNCalendarReminders from 'react-native-calendar-reminders';
 import {ReminderCalendarList} from "./components/reminder-calendar-list";
+import {RemindersList} from "./components/reminders-list";
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -117,50 +117,6 @@ class SortSegmentedControl extends React.Component {
 
   onSegmentChange(event) {
     this.props.onChange(event.nativeEvent.selectedSegmentIndex);
-  }
-}
-
-function renderSeparator(sectionID, rowID, listLength) {
-  let isLastRow = rowID === listLength - 1;
-  if (isLastRow) {
-    return null;
-  }
-  return (
-    <View
-      key={`${sectionID}-${rowID}`}
-      style={styles.separator}
-    />
-  );
-}
-
-class RemindersList extends React.Component {
-  render() {
-    let dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    dataSource = dataSource.cloneWithRows(this.props.reminders);
-
-    return (
-      <ListView
-        dataSource={dataSource}
-        renderRow={(rowData) => <ReminderRow reminder={rowData}/>}
-        style={styles.remindersList}
-        renderSeparator={(sectionID, rowID) => {
-          return renderSeparator(sectionID, rowID, this.props.reminders.length);
-        }}
-        enableEmptySections={true}
-      />
-    );
-  }
-}
-
-class ReminderRow extends React.Component {
-  render() {
-    const reminder = this.props.reminder;
-    const text = `${reminder.priority} ${reminder.title}`;
-    return (
-      <View style={styles.row}>
-        <Text>{text}</Text>
-      </View>
-    );
   }
 }
 

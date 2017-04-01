@@ -23,7 +23,7 @@ export class ReminderCalendarList extends React.Component {
   }
 
   render() {
-    let calendars = this.state.calendars;
+    const calendars = this.state.calendars;
     return (
       <List>
         {
