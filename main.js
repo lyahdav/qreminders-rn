@@ -12,6 +12,7 @@ import {ReminderCalendarList} from "./components/reminder-calendar-list";
 import {RemindersList} from "./components/reminders-list";
 
 class HomeScreen extends React.Component {
+  //noinspection JSUnusedGlobalSymbols
   static navigationOptions = {
     title: 'Lists'
   };
@@ -26,6 +27,7 @@ class HomeScreen extends React.Component {
 }
 
 class ReminderListScreen extends React.Component {
+  //noinspection JSUnusedGlobalSymbols
   static navigationOptions = {
     title: ({state}) => state.params.title
   };
