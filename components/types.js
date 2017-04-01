@@ -5,7 +5,12 @@ export const HIGH_PRIORITY = 1;
 export const MEDIUM_PRIORITY = 5;
 export const LOW_PRIORITY = 9;
 
+type Alarm = {
+  date: string
+};
+
 export type Reminder = {
   priority: number,
-  title: string
+  title: string,
+  alarms: Alarm[]
 };

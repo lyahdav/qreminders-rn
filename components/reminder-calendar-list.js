@@ -3,6 +3,8 @@ import RNCalendarReminders from 'react-native-calendar-reminders';
 import {List, ListItem} from 'react-native-elements';
 import {ScrollView} from 'react-native';
 
+export const SCHEDULED_CALENDAR_IDENTIFIER = 'SCHEDULED_CALENDAR_IDENTIFIER';
+
 export class ReminderCalendarList extends React.Component {
   constructor(props) {
     super(props);
@@ -25,11 +27,18 @@ export class ReminderCalendarList extends React.Component {
 
   render() {
     const calendars = this.state.calendars;
+    const scheduleCalendar = {
+      title: 'Scheduled',
+      color: 'gray',
+      calendarIdentifier: SCHEDULED_CALENDAR_IDENTIFIER
+    };
+    const list = [scheduleCalendar].concat(calendars);
+
     return (
       <ScrollView>
         <List>
           {
-            calendars.map((calendar, index) => (
+            list.map((calendar, index) => (
               <ListItem
                 key={index}
                 title={calendar.title}

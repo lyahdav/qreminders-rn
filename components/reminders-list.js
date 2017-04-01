@@ -5,6 +5,7 @@ import {List, ListItem} from 'react-native-elements';
 import {StyleSheet, ScrollView, Text, View} from 'react-native';
 import type {Reminder} from './types';
 import {NO_PRIORITY, HIGH_PRIORITY, MEDIUM_PRIORITY, LOW_PRIORITY} from './types';
+const moment = require('moment');
 
 export class RemindersList extends React.Component {
   props: {
@@ -26,6 +27,7 @@ export class RemindersList extends React.Component {
                     <Text>{reminder.title}</Text>
                   </View>
                 }
+                subtitle={RemindersList.getSubtitle(reminder)}
                 hideChevron={true}
               />
             ))
@@ -33,6 +35,14 @@ export class RemindersList extends React.Component {
         </List>
       </ScrollView>
     );
+  }
+
+  static getSubtitle(reminder: Reminder) {
+    const firstAlarm = reminder.alarms.length > 0 ? reminder.alarms[0] : null;
+    if (firstAlarm === null) {
+      return null;
+    }
+    return moment(firstAlarm.date).format("ddd, hA");
   }
 }
 

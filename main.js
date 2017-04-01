@@ -8,8 +8,10 @@ import {
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
 import RNCalendarReminders from 'react-native-calendar-reminders';
-import {ReminderCalendarList} from "./components/reminder-calendar-list";
-import {RemindersList} from "./components/reminders-list";
+
+import {ReminderCalendarList, SCHEDULED_CALENDAR_IDENTIFIER} from './components/reminder-calendar-list';
+import {RemindersList} from './components/reminders-list';
+import {ScheduledRemindersList} from './components/scheduled-reminders-list';
 
 class HomeScreen extends React.Component {
   //noinspection JSUnusedGlobalSymbols
@@ -34,6 +36,9 @@ class ReminderListScreen extends React.Component {
 
   render() {
     const {params} = this.props.navigation.state;
+    if (params.calendarIdentifier === SCHEDULED_CALENDAR_IDENTIFIER) {
+      return <ScheduledRemindersList />;
+    }
     return (
       <SortableRemindersList calendarIdentifier={params.calendarIdentifier}/>
     );
@@ -70,7 +75,7 @@ class SortableRemindersList extends React.Component {
         <SortSegmentedControl
           onChange={this.onSortSegmentChange.bind(this)}
           selectedIndex={this.state.sortTypeIndex}/>
-        <RemindersList reminders={reminders} sortTypeIndex={this.state.sortTypeIndex}/>
+        <RemindersList reminders={reminders}/>
       </View>
     );
   }
