@@ -1,6 +1,7 @@
 import React from 'react';
 import RNCalendarReminders from 'react-native-calendar-reminders';
 import {List, ListItem} from 'react-native-elements';
+import {ScrollView} from 'react-native';
 
 export class ReminderCalendarList extends React.Component {
   constructor(props) {
@@ -25,17 +26,21 @@ export class ReminderCalendarList extends React.Component {
   render() {
     const calendars = this.state.calendars;
     return (
-      <List>
-        {
-          calendars.map((calendar, index) => (
-            <ListItem
-              key={index}
-              title={calendar.title}
-              onPress={() => {this.onPressRow(calendar)}}
-            />
-          ))
-        }
-      </List>
+      <ScrollView>
+        <List>
+          {
+            calendars.map((calendar, index) => (
+              <ListItem
+                key={index}
+                title={calendar.title}
+                onPress={() => {
+                  this.onPressRow(calendar)
+                }}
+              />
+            ))
+          }
+        </List>
+      </ScrollView>
     );
   }
 
