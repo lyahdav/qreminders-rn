@@ -1,11 +1,24 @@
-import React from 'react';
-import RNCalendarReminders from 'react-native-calendar-reminders';
+// @flow
 
-import {RemindersList} from './reminders-list';
+import React from 'react';
+import {ListView, ScrollView, StyleSheet, Text} from 'react-native';
+//noinspection NpmUsedModulesInstalled $FlowFixMe
+import RNCalendarReminders from 'react-native-calendar-reminders';
+import {List} from 'react-native-elements';
+import moment from 'moment';
+
+import type {Reminder} from './types';
+import {ReminderItem} from './reminder-item';
+import {ReminderUtils} from '../utilities/reminder-utils';
 
 export class ScheduledRemindersList extends React.Component {
-  constructor(props) {
-    super(props);
+  state: {
+    reminders: Reminder[]
+  };
+
+  constructor() {
+    super();
+
     this.state = {
       reminders: []
     };
@@ -25,16 +38,71 @@ export class ScheduledRemindersList extends React.Component {
       });
   }
 
+  groupRemindersByDate() {
+    let remindersGroupedByDate = {};
+    this.state.reminders.forEach((reminder) => {
+      const reminderDateString = ScheduledRemindersList.getReminderDateString(reminder);
+      if (!remindersGroupedByDate[reminderDateString]) {
+        remindersGroupedByDate[reminderDateString] = [];
+      }
+      remindersGroupedByDate[reminderDateString].push(reminder);
+    });
+    return remindersGroupedByDate;
+  }
+
   render() {
-    const reminders = this.getReminders();
+    //noinspection JSUnusedGlobalSymbols
+    let dataSource = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+      sectionHeaderHasChanged: (s1, s2) => s1 !== s2
+    });
+
+    dataSource = dataSource.cloneWithRowsAndSections(this.groupRemindersByDate());
+
     return (
-      <RemindersList reminders={reminders}/>
+      <ScrollView>
+        <List>
+          <ListView
+            dataSource={dataSource}
+            renderRow={ScheduledRemindersList.renderRow}
+            renderSectionHeader={ScheduledRemindersList.renderSectionHeader}
+          />
+        </List>
+      </ScrollView>
     );
   }
 
-  getReminders() {
-    const reminders = this.state.reminders;
-    console.log(reminders);
-    return reminders;
+  //noinspection JSUnusedLocalSymbols
+  static renderSectionHeader(sectionData: any, sectionHeaderText: string) {
+    return (
+      <Text style={styles.sectionHeader}>{sectionHeaderText}</Text>
+    );
+  }
+
+  static renderRow(reminder: Reminder, sectionID: any) {
+    return (
+      <ReminderItem
+        key={sectionID}
+        reminder={reminder}
+      />
+    );
+  }
+
+  static getReminderDateString(reminder: Reminder) {
+    const firstAlarm = ReminderUtils.getFirstAlarm(reminder);
+    //noinspection EqualityComparisonWithCoercionJS
+    if (firstAlarm == null) {
+      throw 'no alarm on reminder';
+    }
+    return moment(firstAlarm.date).format('l');
   }
 }
+
+const styles = StyleSheet.create({
+  sectionHeader: {
+    fontWeight: 'bold',
+    fontSize: 12,
+    backgroundColor: 'silver',
+    padding: 4
+  }
+});

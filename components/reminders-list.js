@@ -1,11 +1,11 @@
 // @flow
 
 import React from 'react';
-import {List, ListItem} from 'react-native-elements';
-import {StyleSheet, ScrollView, Text, View} from 'react-native';
+import {List} from 'react-native-elements';
+import {ScrollView} from 'react-native';
+
 import type {Reminder} from './types';
-import {NO_PRIORITY, HIGH_PRIORITY, MEDIUM_PRIORITY, LOW_PRIORITY} from './types';
-const moment = require('moment');
+import {ReminderItem} from './reminder-item';
 
 export class RemindersList extends React.Component {
   props: {
@@ -19,16 +19,9 @@ export class RemindersList extends React.Component {
         <List>
           {
             reminders.map((reminder, index) => (
-              <ListItem
+              <ReminderItem
                 key={index}
-                title={
-                  <View style={styles.titleView}>
-                    <PriorityView priority={reminder.priority}/>
-                    <Text>{reminder.title}</Text>
-                  </View>
-                }
-                subtitle={RemindersList.getSubtitle(reminder)}
-                hideChevron={true}
+                reminder={reminder}
               />
             ))
           }
@@ -36,46 +29,4 @@ export class RemindersList extends React.Component {
       </ScrollView>
     );
   }
-
-  static getSubtitle(reminder: Reminder) {
-    const firstAlarm = reminder.alarms.length > 0 ? reminder.alarms[0] : null;
-    if (firstAlarm === null) {
-      return null;
-    }
-    return moment(firstAlarm.date).format("ddd, hA");
-  }
 }
-
-class PriorityView extends React.Component {
-  render() {
-    const priority = this.props.priority;
-    const text = PriorityView.getPriorityText(priority);
-    return ( <Text style={styles.priorityView}>{text}</Text> );
-  };
-
-  static getPriorityText(priority) {
-    if (priority === NO_PRIORITY) {
-      return '';
-    }
-
-    const prioritiesToCounts = {
-      [HIGH_PRIORITY]: 3,
-      [MEDIUM_PRIORITY]: 2,
-      [LOW_PRIORITY]: 1
-    };
-
-    const count = prioritiesToCounts[priority];
-    return `${'!'.repeat(count)} `;
-  }
-}
-
-const styles = StyleSheet.create({
-  titleView: {
-    flexDirection: 'row',
-    paddingLeft: 10,
-    paddingTop: 5
-  },
-  priorityView: {
-    color: 'red'
-  }
-});

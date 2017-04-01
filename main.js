@@ -1,3 +1,4 @@
+//noinspection JSUnresolvedVariable
 import Exponent from 'exponent';
 import React from 'react';
 import {
@@ -7,6 +8,7 @@ import {
   SegmentedControlIOS
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
+//noinspection NpmUsedModulesInstalled
 import RNCalendarReminders from 'react-native-calendar-reminders';
 
 import {ReminderCalendarList, SCHEDULED_CALENDAR_IDENTIFIER} from './components/reminder-calendar-list';
@@ -48,7 +50,6 @@ class ReminderListScreen extends React.Component {
 const SORT_TYPE_DEFAULT = 0;
 const SORT_TYPE_PRIORITY = 1;
 
-// TODO extract to smaller files
 class SortableRemindersList extends React.Component {
   constructor(props) {
     super(props);
@@ -60,6 +61,7 @@ class SortableRemindersList extends React.Component {
 
   componentDidMount() {
     const calendarIdentifiers = [this.props.calendarIdentifier];
+    //noinspection JSUnresolvedFunction
     RNCalendarReminders.fetchIncompleteReminders(null, null, calendarIdentifiers)
       .then((reminders) => {
         this.setState({
@@ -122,6 +124,7 @@ class SortSegmentedControl extends React.Component {
   }
 
   onSegmentChange(event) {
+    //noinspection JSUnresolvedVariable
     this.props.onChange(event.nativeEvent.selectedSegmentIndex);
   }
 }
