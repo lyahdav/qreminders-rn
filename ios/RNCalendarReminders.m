@@ -471,6 +471,19 @@ RCT_EXPORT_MODULE()
     
 }
 
+- (NSString *)hexStringFromColor:(CGColorRef)color {
+    const CGFloat *components = CGColorGetComponents(color);
+    
+    CGFloat r = components[0];
+    CGFloat g = components[1];
+    CGFloat b = components[2];
+    
+    return [NSString stringWithFormat:@"#%02lX%02lX%02lX",
+            lroundf(r * 255),
+            lroundf(g * 255),
+            lroundf(b * 255)];
+}
+
 - (NSArray<NSDictionary *> *)serializeCalendars:(NSArray<EKCalendar *> *)calendars
 {
     NSMutableArray *serializedCalendars = [[NSMutableArray alloc] init];
@@ -478,7 +491,8 @@ RCT_EXPORT_MODULE()
     for (EKCalendar *calendar in calendars) {
         id serializedCalendar = @{
                                   @"title": calendar.title,
-                                  @"calendarIdentifier": calendar.calendarIdentifier
+                                  @"calendarIdentifier": calendar.calendarIdentifier,
+                                  @"color": [self hexStringFromColor:calendar.CGColor]
                                   };
         [serializedCalendars addObject:serializedCalendar];
     }

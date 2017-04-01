@@ -91,7 +91,6 @@ class SortableRemindersList extends React.Component {
   }
 
   static _getPriorityForSort(reminder) {
-    // 0 priority means none. 1 = highest, 9 = lowest
     return reminder.priority === 0 ? 100 : reminder.priority;
   }
 
