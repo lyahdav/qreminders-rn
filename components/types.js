@@ -10,6 +10,7 @@ export type Alarm = {
 };
 
 export type Reminder = {
+  id: string,
   priority: number,
   title: string,
   alarms: Alarm[]

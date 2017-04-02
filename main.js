@@ -60,6 +60,10 @@ class SortableRemindersList extends React.Component {
   }
 
   componentDidMount() {
+    this.fetchReminders();
+  }
+
+  fetchReminders() {
     const calendarIdentifiers = [this.props.calendarIdentifier];
     //noinspection JSUnresolvedFunction
     RNCalendarReminders.fetchIncompleteReminders(null, null, calendarIdentifiers)
@@ -77,7 +81,10 @@ class SortableRemindersList extends React.Component {
         <SortSegmentedControl
           onChange={this.onSortSegmentChange.bind(this)}
           selectedIndex={this.state.sortTypeIndex}/>
-        <RemindersList reminders={reminders}/>
+        <RemindersList
+          reminders={reminders}
+          onReminderChanged={() => this.fetchReminders()}
+        />
       </View>
     );
   }

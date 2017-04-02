@@ -25,6 +25,10 @@ export class ScheduledRemindersList extends React.Component {
   }
 
   componentDidMount() {
+    this.fetchReminders();
+  }
+
+  fetchReminders() {
     let oneYearAgo = new Date();
     oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
     let oneYearFromNow = new Date();
@@ -71,7 +75,7 @@ export class ScheduledRemindersList extends React.Component {
         <List>
           <ListView
             dataSource={dataSource}
-            renderRow={ScheduledRemindersList.renderRow}
+            renderRow={this.renderRow}
             renderSectionHeader={ScheduledRemindersList.renderSectionHeader}
           />
         </List>
@@ -86,14 +90,15 @@ export class ScheduledRemindersList extends React.Component {
     );
   }
 
-  static renderRow(reminder: Reminder, sectionID: any) {
+  renderRow = (reminder: Reminder, sectionID: any) => {
     return (
       <ReminderItem
         key={sectionID}
         reminder={reminder}
+        onReminderChanged={() => this.fetchReminders()}
       />
     );
-  }
+  };
 
   static getReminderDateString(reminder: Reminder) {
     const firstAlarmDate = ReminderUtils.getFirstAlarmDateBang(reminder);

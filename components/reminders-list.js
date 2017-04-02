@@ -9,7 +9,8 @@ import {ReminderItem} from './reminder-item';
 
 export class RemindersList extends React.Component {
   props: {
-    reminders: Array<Reminder>
+    reminders: Array<Reminder>,
+    onReminderChanged: () => void
   };
 
   render() {
@@ -22,6 +23,7 @@ export class RemindersList extends React.Component {
               <ReminderItem
                 key={index}
                 reminder={reminder}
+                onReminderChanged={this.props.onReminderChanged}
               />
             ))
           }
