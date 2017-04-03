@@ -5,11 +5,14 @@ import {
   StyleSheet,
   Text,
   View,
-  SegmentedControlIOS
+  SegmentedControlIOS,
+  Modal, TouchableWithoutFeedback
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
 //noinspection NpmUsedModulesInstalled
 import RNCalendarReminders from 'react-native-calendar-reminders';
+import {Components} from 'exponent';
+const {BlurView} = Components;
 
 import {ReminderCalendarList, SCHEDULED_CALENDAR_IDENTIFIER} from './components/reminder-calendar-list';
 import {RemindersList} from './components/reminders-list';
@@ -36,13 +39,35 @@ class ReminderListScreen extends React.Component {
     title: ({state}) => state.params.title
   };
 
+  constructor() {
+    super();
+    this.state = {
+      modalVisible: true
+    };
+  }
+
   render() {
     const {params} = this.props.navigation.state;
     if (params.calendarIdentifier === SCHEDULED_CALENDAR_IDENTIFIER) {
       return <ScheduledRemindersList />;
     }
     return (
-      <SortableRemindersList calendarIdentifier={params.calendarIdentifier}/>
+      <View style={{flex: 1}}>
+        <SortableRemindersList calendarIdentifier={params.calendarIdentifier}/>
+        <TouchableWithoutFeedback onPress={() => {
+          this.setState({modalVisible: false})
+        }}>
+          <Modal
+            visible={this.state.modalVisible}
+          >
+            <Text>Hello World!</Text>
+            <BlurView
+              tint="dark"
+              intensity={80}
+              style={StyleSheet.absoluteFill}/>
+          </Modal>
+        </TouchableWithoutFeedback>
+      </View>
     );
   }
 }
