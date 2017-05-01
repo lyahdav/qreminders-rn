@@ -4,6 +4,7 @@ import React from 'react';
 import {Button, Modal, StyleSheet, Text, View} from 'react-native';
 import {List, Icon} from 'react-native-elements';
 import RNCalendarReminders from 'react-native-calendar-reminders';
+import moment from 'moment';
 
 import type {Reminder} from './types';
 
@@ -34,11 +35,11 @@ export class ReminderModal extends React.Component {
             <View style={styles.row}>
               <ModalButton icon='check' text='Complete' onPress={this.onCompletePress}/>
             </View>
-            {/*<View style={styles.row}>*/}
-              {/*<ModalButton icon='clock-o' text='15 minutes'/>*/}
-              {/*<ModalButton icon='clock-o' text='30 minutes'/>*/}
-              {/*<ModalButton icon='clock-o' text='1 hour'/>*/}
-            {/*</View>*/}
+            <View style={styles.row}>
+              <ModalButton icon='clock-o' text='15 minutes' onPress={() => this.onSnoozePress(15)} />
+              <ModalButton icon='clock-o' text='30 minutes' onPress={() => this.onSnoozePress(30)} />
+              <ModalButton icon='clock-o' text='1 hour' onPress={() => this.onSnoozePress(60)} />
+            </View>
             <View style={[styles.row, styles.lastRow]}>
               <Button
                 title='Close'
@@ -53,15 +54,32 @@ export class ReminderModal extends React.Component {
   }
 
   onCompletePress = () => {
-    RNCalendarReminders.updateReminder(this.props.reminder.id, {
+    this.updateReminder({
       isCompleted: true
-    }).then(() => {
+    });
+  };
+
+  updateReminder(updates: {isCompleted?: boolean}) {
+    RNCalendarReminders.updateReminder(this.props.reminder.id, updates).then(() => {
       this.props.onReminderChanged();
     }).catch(error => {
       // handle error
     });
 
     this.setModalVisible(false);
+  }
+
+  onSnoozePress(snoozeMinutes: number) {
+    const date = moment().add(snoozeMinutes, 'minutes');
+    this.updateReminder({
+      dueDate: date.valueOf(),
+      startDate: date.valueOf(),
+      alarms: [
+        {
+          date: date.toISOString()
+        }
+      ]
+    });
   }
 }
 

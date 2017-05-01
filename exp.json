@@ -1,6 +1,6 @@
 {
   "name": "qreminders-rn",
-  "description": "An empty new project",
+  "description": "iOS Reminders app",
   "slug": "qreminders-rn",
   "privacy": "public",
   "sdkVersion": "14.0.0",
