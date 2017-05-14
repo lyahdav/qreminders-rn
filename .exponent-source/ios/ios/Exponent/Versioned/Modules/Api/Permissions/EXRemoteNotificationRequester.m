@@ -37,7 +37,6 @@
                                              object:nil];
   UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
   [RCTSharedApplication() registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:types categories:nil]];
-  [RCTSharedApplication() registerForRemoteNotifications];
 }
 
 - (void)setDelegate:(id<EXPermissionRequesterDelegate>)delegate

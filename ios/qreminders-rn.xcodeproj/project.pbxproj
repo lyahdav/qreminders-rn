@@ -158,6 +158,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 3KBRTL774D;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

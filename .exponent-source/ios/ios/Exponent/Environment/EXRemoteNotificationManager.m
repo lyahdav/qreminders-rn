@@ -56,11 +56,6 @@ NSString * const kEXCurrentAPNSTokenDefaultsKey = @"EXCurrentAPNSTokenDefaultsKe
   return self;
 }
 
-- (void)registerForRemoteNotifications
-{
-  [RCTSharedApplication() registerForRemoteNotifications];
-}
-
 - (void)registerAPNSToken:(NSData *)token
 {
   if (token) {
