@@ -19,11 +19,11 @@
     ]
   },
   "ios": {
-    "bundleIdentifier": "com.yahdav.qreminders",
+    "bundleIdentifier": "com.yahdav.qremindersrn",
     "supportsTablet": true
   },
   "android": {
-    "package": "com.yahdav.qreminders"
+    "package": "com.yahdav.qremindersrn"
   },
   "isDetached": true,
   "detach": {
